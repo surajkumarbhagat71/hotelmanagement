@@ -1,0 +1,25 @@
+{% extends 'maneeger/base.html' %}
+
+{% block content %}
+    {% load crispy_forms_tags %}
+  <div class="container mt-5">
+  <div class="row">
+      <div class="col-lg-5 mx-auto">
+          <div class="card">
+              <div class="card-body">
+                  <h5 class="mb-3"><b>Add Room</b></h5>
+                  <form action="{% url 'add_room' %}" method="post">
+                      {% csrf_token %}
+                      {{ roomform|crispy }}
+                      <div class="form-group mt-4">
+                          <input type="submit" class="btn btn-success btn-block" style="border-radius: 20px";>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+  </div>
+
+
+{% endblock %}

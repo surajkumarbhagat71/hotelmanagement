@@ -1,0 +1,40 @@
+{% extends 'maneeger/base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+<div class="row">
+
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <table class="table table-active table-hover">
+                    <tr class="bg-primary text-white">
+                        <th>Room No.</th>
+                        <th>Name</th>
+                        <th>Contact</th>
+                        <th>Address</th>
+                        <th>Email id</th>
+                        <th>Advance pad</th>
+                        <th>Checkin Date Time</th>
+                        <th>Action</th>
+                    </tr>
+                    {% for foo in rantedroom %}
+                    <tr>
+                        <td>{{ foo.room_number.room_id }}</td>
+                        <td>{{ foo.name }}</td>
+                        <td>{{ foo.contact }}</td>
+                        <td>{{ foo.address }}</td>
+                        <td>{{ foo.email_id }}</td>
+                        <td>{{ foo.advance_payment }}</td>
+                        <td>{{ foo.cheak_in_time }}</td>
+                        <td><a href="{% url 'checkout' foo.cast_id %}" class="btn btn-sm btn-outline-danger" style="border-radius:20px"; >Checkout</a></td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}

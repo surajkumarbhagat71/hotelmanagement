@@ -1,0 +1,32 @@
+{% extends 'maneeger/base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="display-4 text-center text-white bg-secondary">All Category</h4>
+                <table class="table table-active table-hover">
+                    <tr class="bg-primary text-white">
+                        <th>Category Id</th>
+                        <th>Category Title</th>
+                        <th>Rant</th>
+                        <th>Update Rant</th>
+                    </tr>
+                    {% for foo in category %}
+                    <tr>
+                        <td>{{ foo.category_id }}</td>
+                        <td>{{ foo.title }}</td>
+                        <td>{{ foo.rant }}</td>
+                        <td><a href="{% url 'updateroomcategory' foo.category_id %}" class="btn btn-outline-success btn-sm">Update</a></td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}

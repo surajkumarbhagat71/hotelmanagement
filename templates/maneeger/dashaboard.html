@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'bootstrap.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+</head>
+<body>
+
+
+<style>
+    body{
+        background-image:url("{% static 'umm.jpg' %}");
+        background-repeat:no-repeat;
+        background-size: cover;
+    }
+
+    #sidebar{
+        height:90vh;
+        overflow:auto;
+    }
+    a.list-group-item-action:hover{
+        background-color: cadetblue !important;
+        color: white;
+    }
+    #sidebar::-webkit-scrollbar{
+        display:none;
+    }
+    #sidebar:hover::-webkit-scrollbar{
+        display: block;
+        width:0.5rem;
+    }
+    #sidebar:hover::-webkit-scrollbar-track{
+         background-color: #ececf6;
+    }
+    #sidebar:hover::-webkit-scrollbar-thumb{
+       background-color: #6c757d;
+        -webkit-border-radius: 100px;
+        -moz-border-radius: 100px;
+        border-radius: 100px;
+    }
+
+
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #006266";>
+    <a href="{% url 'dashaboard' %}" class="navbar-brand ml-3">HOTEL Management System</a>
+
+</nav>
+
+    {% load static %}
+    <div class="container-fluid p-0">
+    <div class="row no-gutters">
+        <div class="col-lg-3" id="sidebar">
+           <div class="card border-0 shadow-sm">
+               <div class="card-body m-0 p-0">
+                   <div class="list-group list-group-flush" id="list_hover">
+                        <a href="{% url 'avalablerooms' %}" class="list-group list-group-item list-group-item-action border-bottom-0 border-top-0"><i class="fas fa-door-open mr-1 text-info"></i> Avalable Rooms</a>
+                        <a href="{% url 'rantedroom' %}" class="list-group list-group-item list-group-item-action border-bottom-0 border-top-0"><i class="fas fa-door-closed mr-1 text-danger"></i> Ranted Rooms</a>
+                        <a href="{% url 'add_category' %}" class="list-group list-group-item list-group-item-action border-bottom-0 border-top-0"><i class="fas fa-file-import mr-2 text-success"></i>Add Room's Category</a>
+                        <a href="{% url 'add_room' %}" class="list-group list-group-item list-group-item-action border-bottom-0 border-top-0"><i class="fas fa-plus mr-1 text-warning"></i> Add Room</a>
+                        <a href="{% url 'add_emplyee_category' %}" class="list-group list-group-item list-group-item-action border-bottom-0 border-top-0"><i class="fas fa-plus mr-1 text-primary"></i> Add Emplyee Category</a>
+                        <a href="{% url 'add_emplyee' %}" class="list-group list-group-item list-group-item-action border-bottom-0 border-top-0" ><i class="fas fa-user-plus mr-1 text-secondary"></i> Add Emplyee</a>
+                        <a href="{% url 'all_room' %}" class="list-group list-group-item list-group-item-action border-bottom-0 border-top-0" ><i class="fas fa-sync-alt mr-1 text-dark"></i> All Rooms</a>
+                        <a href="{% url 'all_current_emplyee' %}" class="list-group list-group-item list-group-item-action border-bottom-0 border-top-0"><i class="fas fa-anchor mr-1 text-info"></i> All Current Emplyee</a>
+                        <a href="{% url 'all_category' %}" class="list-group list-group-item list-group-item-action border-bottom-0 border-top-0"> <i class="fas fa-layer-group mr-1 text-success"></i> All Rooms's Category</a>
+                        <a href="{% url 'checkout_user_details' %}" class="list-group list-group-item list-group-item-action border-bottom-0 border-top-0"><i class="fas fa-file mr-1 text-secondary"></i> All Rooms Records</a>
+                        <a href="{% url 'all_emplyee_record' %}" class="list-group list-group-item list-group-item-action border-bottom-0 border-top-0"><i class="fas fa-file mr-1 text-primary"></i> All Emaplyee Records</a>
+                        <a href="{% url 'logout' %}" class="list-group list-group-item list-group-item-action border-bottom-0 border-top-0"><i class="fas fa-power-off mr-1 text-danger"></i> Logout</a>
+                    </div>
+               </div>
+           </div>
+        </div>
+        <div class="col-lg-6 mx-auto">
+            <div class="row">
+                <div class="col-lg-6 mt-3">
+                    <a href="{% url 'all_room' %}">
+                    <div class="card">
+                        <div class="card-header display-5 text-center text-white" style="background-color:#002752 "> Total  Rooms</div>
+                        <div class="card-body text-center">
+                           <b>{{ rooms }}</b>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-6 mt-3">
+                    <a href="{% url 'avalablerooms' %}">
+                    <div class="card">
+                        <div class="card-header display-5 text-center text-white " style="background-color:#002752 "> Avalable Rooms</div>
+                        <div class="card-body text-center">
+                           <b>{{ avalblerooms }}</b>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-6 mt-3">
+                    <a href="{% url 'rantedroom' %}">
+                    <div class="card">
+                        <div class="card-header display-5 text-center text-white" style="background-color:#002752 "> Ranted Rooms</div>
+                        <div class="card-body text-center">
+                           <b>{{ rantedrooms }}</b>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+
+
+                <div class="col-lg-6 mt-3">
+                    <a href="{% url 'all_current_emplyee' %}">
+                    <div class="card">
+                        <div class="card-header display-5 text-center text-white" style="background-color:#002752 ">Total Emplyee</div>
+                        <div class="card-body text-center">
+                           <b>{{ allemplyee }}</b>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-6 mt-3">
+                    <a href="{% url 'all_category' %}">
+                    <div class="card">
+                        <div class="card-header display-5 text-center text-white" style="background-color:#002752 ">Rooms Category</div>
+                        <div class="card-body text-center">
+                           <b>{{ roomcategory }}</b>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-6 mt-3">
+                    <div class="card">
+                        <div class="card-header display-5 text-center text-white" style="background-color:#002752 ">Emaplyee Category</div>
+                        <div class="card-body text-center">
+                           <b>{{ allemplyeecategory}}</b>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+</body>
+</html>

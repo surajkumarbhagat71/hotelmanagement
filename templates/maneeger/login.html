@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'bootstrap.css' %}">
+</head>
+<body>
+
+
+<style>
+    body{
+        background-image:url("{% static 'cubes.jpg' %}");
+        background-repeat: no-repeat;
+        background-position:center;
+        background-size: cover;
+    }
+</style>
+
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+    <a href="" class="navbar-brand ml-5"><b class="ml-5 text-warning">HOTEL Management System<b></a>
+</nav>
+
+<div class="container">
+    <div class="row my-5">
+        <div class="col-lg-5 mx-auto">
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h5 class="display-5 text-success">>>Admin Login</h5>
+                    <form action="{% url 'login' %}" method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label class="p-0 m-0 small text-muted">Email</label>
+                            <input type="text" class="form-control" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label class="p-0 m-0 small text-muted">Password</label>
+                            <input type="password" class="form-control" name="password">
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Login" class="btn btn-block btn-success" style="border-radius:20px">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br>
+
+</body>
+</html>

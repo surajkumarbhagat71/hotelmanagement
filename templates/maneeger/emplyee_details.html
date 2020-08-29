@@ -1,0 +1,71 @@
+{% extends 'maneeger/base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+<div class="row">
+    <div class="col-lg-10 mx-auto">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card shadow-sm border-0">
+                            <div class="card-body shadow-sm">
+                                <img src="{{ emplyee_detail.image.url }}" class="card-img-top" >
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-8">
+                        <table class="table table-borderless">
+                    <tr>
+                        <th><i class="fas fa-user mr-1"></i>&nbsp; Name</th>
+                        <th>{{ emplyee_detail.name }}</th>
+                    </tr>
+
+                    <tr>
+                        <th><i class="fa fa-address-card mr-1">&nbsp; Contact</th>
+                        <th>{{ emplyee_detail.contact }}</th>
+                    </tr>
+
+                    <tr>
+                        <th> <i class="fas fa-envelope mr-1"></i>&nbsp; Email Id</th>
+                        <th>{{ emplyee_detail.email }}</th>
+                    </tr>
+
+                    <tr>
+                        <th> <i class="fas fa-address-card mr-1"></i>&nbsp;Address</th>
+                        <th>{{ emplyee_detail.address }}</th>
+                    </tr>
+
+                    <tr>
+                        <th><i class="fas fa-address-card mr-1"></i>&nbsp; City</th>
+                        <th>{{ emplyee_detail.city }}</th>
+                    </tr>
+
+                    <tr>
+                        <th><i class="fas fa-dollar-sign mr-1"></i>&nbsp; Salary</th>
+                        <th>{{ emplyee_detail.salary }}</th>
+                    </tr>
+
+                    <tr>
+                        <th><i class="fas fa-book-reader mr-1"></i>&nbsp;Qualifications</th>
+                        <th>{{ emplyee_detail.qualifications }}</th>
+                    </tr>
+
+                    <tr>
+                        <th><i class="fas fa-calendar-day mr-1"></i>&nbsp; Join Date</th>
+                        <th>{{ emplyee_detail.join_date }}</th>
+                    </tr>
+                </table>
+                    </div>
+                </div>
+                <div class="mt-2 float-right">
+                    <a href="{% url 'remove_emplyee' emplyee_detail.emplyee_id %} " class="btn btn-danger btn-sm" >Remove Emplyee</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}
